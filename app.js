@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-const PORT = config.get("port") || 5000;
+const PORT = process.env.PORT || config.get("port");
 const mongoURI = process.env.MONGODB_URI || config.get("mongoUri");
 console.log(mongoURI);
 
