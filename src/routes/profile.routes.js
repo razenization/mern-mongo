@@ -8,6 +8,7 @@ const multer = require("multer");
 const upload = multer({ dest: "static/temp/" });
 const router = Router();
 const fs = require("fs");
+const path = require("path");
 
 router.get("/", auth, async (req, resp) => {
   try {
@@ -26,16 +27,13 @@ router.post(
   [auth, upload.single("avatar")],
   async (req, resp) => {
     try {
-      console.log(req.file);
       const user = await User.findById(req.user.userId);
       const receivedImg = req.file;
       const existingAvatar = user.avatar || null;
-      console.log(existingAvatar);
       if (existingAvatar) Image.findById(existingAvatar).remove();
       // await Image.find().remove();
-
       const imageData = fs.readFileSync(
-        `${config.get("homeDir")}static\\temp\\${receivedImg.filename}`
+        path.join(__rootdir, `static\\temp\\${receivedImg.filename}`)
       );
 
       const img = new Image({
@@ -52,7 +50,7 @@ router.post(
       //     try {
       //       const pathToPic = `/static/assets/img/${req.user.token}.png`
       //       fs.writeFileSync(
-      //         __dirname + pathToPic,
+      //         __rootdir + pathToPic,
       //         foundImage.data
       //       );
       //       foundImage.src = pathToPic;
@@ -66,15 +64,13 @@ router.post(
       // });
       await img.save();
 
-      console.log("here");
-
       // Downloading the image from Mongo
 
       const dbImg = await Image.findOne({ data: imageData });
       const pathToPic = `static\\assets\\img\\${req.user.userId}.${
         dbImg.type.split("/")[1]
       }`;
-      fs.writeFile(config.get("homeDir") + pathToPic, dbImg.data, (err) => {
+      fs.writeFile(path.join(__rootdir, pathToPic), dbImg.data, (err) => {
         if (err) throw err;
         console.log("The file has been saved!");
       });

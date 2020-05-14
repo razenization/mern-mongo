@@ -12,6 +12,7 @@ app.use("/api/profile", require("./src/routes/profile.routes"));
 app.use("/api/test", require("./src/routes/test.routes"));
 app.use("/t", require("./src/routes/redirect.routes"));
 app.use(express.static("static"));
+global.__rootdir = __dirname;
 
 if (process.env.NODE_ENV === "production") {
   app.use("/", express.static(path.join(__dirname, "client", "build")));
@@ -23,8 +24,6 @@ if (process.env.NODE_ENV === "production") {
 
 const PORT = process.env.PORT || config.get("port");
 const mongoURI = process.env.MONGODB_URI || config.get("mongoUri");
-console.log(PORT);
-console.log(mongoURI);
 
 async function start() {
   try {
