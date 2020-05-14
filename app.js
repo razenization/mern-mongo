@@ -23,6 +23,7 @@ if (process.env.NODE_ENV === "production") {
 
 const PORT = config.get("port") || 5000;
 const mongoURI = process.env.MONGO_URI || config.get("mongoUri");
+console.log(mongoURI);
 
 async function start() {
   try {
