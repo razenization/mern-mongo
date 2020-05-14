@@ -1,0 +1,6 @@
+{
+  "port": 5000,
+  "jwtSecret": "mernprojkpi",
+  "mongoUri": "mongodb+srv://razen:mdC6A5FPcl1Gs2tw@cluster0-nyvum.mongodb.net/app?retryWrites=true&w=majority",
+  "baseUrl": "http://localhost:5000"
+}

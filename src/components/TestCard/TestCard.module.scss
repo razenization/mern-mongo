@@ -1,0 +1,29 @@
+.Test__wrapper {
+    margin-top: 0.5rem;
+    border: 1px solid #aaa;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+
+    transition: background .22s;
+    cursor: pointer;
+    &:hover {
+        background: #5c6bc0;
+        .Test__text {
+            color: #fff;
+        }
+    }
+}
+
+.Test__text {
+    font-size: 13px;
+    font-weight: 500;
+    color: #202020;
+    transition: color .22s;
+    margin-left: 5px;
+}
+
+.Test__inner_header {
+    color: #ff3d00;
+    font-size: 14px;
+}

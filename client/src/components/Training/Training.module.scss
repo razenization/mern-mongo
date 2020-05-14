@@ -1,0 +1,76 @@
+.Training__wrapper {
+
+}
+
+.Training__main {
+    display: flex;
+    //align-items: center;
+    justify-content: space-between;
+}
+
+.Training__user_field {
+    width: 49%;
+    height: 100%;
+}
+
+.Textarea__wrapper {
+    border: 1px solid #bababa;
+    border-radius: 5px;
+    width: 100%;
+    height: 200px;
+    display: flex;
+}
+
+.Training__textarea {
+    width: 95%;
+    height: 100%;
+    border: none;
+    resize: none;
+    overflow: hidden;
+    &:active, &:focus {
+        outline: none;
+    }
+}
+
+.Textarea__lines_wrapper {
+    width: 5%;
+    height: 100%;
+    overflow: hidden;
+    position: sticky;
+}
+
+.Textarea__line {
+    width: 100%;
+    height: 16px;
+    margin: 1px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.Training__task {
+    width: 49%;
+}
+
+.Training__task_header {
+    margin: 0;
+}
+
+.Training__task_text {
+
+}
+
+.Training__query_result {
+    font-size: 16px;
+    font-weight: 500;
+
+    &.failed {
+        color: #c62828;
+    }
+    &.success {
+        color: #00c853;
+    }
+}
+
+.Training__congrats {
+    color: #2e7d32;
+}

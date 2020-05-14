@@ -1,0 +1,21 @@
+.Profile {
+
+}
+
+.Profile__header {
+
+}
+
+.Profile__content {
+
+}
+
+.Profile__avatar {
+
+}
+
+.Profile__avatar_pic {
+    max-height: 150px;
+    max-width: 150px;
+    border-radius: 50%;
+}
