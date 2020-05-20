@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useHttp } from "../hooks/http.hook";
 import { useMessage } from "../hooks/message.hook";
 import { AuthContext } from "../context/AuthContext";
+import { BackDrop } from "../components/UI/BackDrop/BackDrop";
 
 export const AuthPage = () => {
   const auth = useContext(AuthContext);
@@ -24,7 +25,8 @@ export const AuthPage = () => {
 
   const registerHandler = async () => {
     try {
-      await request("/api/auth/register", "POST", { ...form });
+      const data = await request("/api/auth/register", "POST", { ...form });
+      message(data.message);
     } catch (e) {}
   };
 
@@ -37,8 +39,9 @@ export const AuthPage = () => {
 
   return (
     <div className={"row"}>
+      <BackDrop />
       <div className="col s6 offset-s3">
-        <h1>Shorten the link</h1>
+        <h1>Link shortening</h1>
         <div className="card blue darken-1">
           <div className="card-content white-text">
             <span className="card-title">Auth</span>
